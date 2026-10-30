@@ -1,4 +1,4 @@
-﻿import streamlit as st
+import streamlit as st
 import pandas as pd
 import pydeck as pdk
 import time
@@ -62,6 +62,7 @@ with tab3:
     st.header("Model Pipeline & Architecture")
     st.write("This project utilizes a 7-Step GeoAI workflow, combining Self-Supervised Learning (SSL) with PyTorch regression models.")
     
+    # Add the framework flowchart
     try:
         st.image("Figure_2_Framework_Flowchart.png", caption="Project SPROUT GeoAI Framework Flowchart", width='stretch')
     except:
@@ -69,6 +70,7 @@ with tab3:
         
     st.divider()
     
+    # Two columns for detailed model info
     col1, col2 = st.columns(2)
     with col1:
         st.subheader("🧠 Deep Learning Models")
@@ -81,12 +83,28 @@ with tab3:
 
     # NEW: Interactive Demo Section
     st.subheader("🧪 Test the Model (Interactive Demo)")
+<<<<<<< HEAD
+=======
+    st.write("Upload a sample satellite image patch to simulate a carbon biomass prediction.")
+    
+>>>>>>> bd936fc7abced7dca6b28b8752591c2cc3335f98
     uploaded_file = st.file_uploader("Upload a Sentinel-2 image patch (PNG/JPG)", type=["png", "jpg"])
     
     if uploaded_file is not None:
         st.image(uploaded_file, caption="Uploaded Satellite Patch", width=300)
+<<<<<<< HEAD
         if st.button("Predict Above-Ground Carbon Biomass"):
             with st.spinner("Running 12-band inference model..."):
                 time.sleep(1.5)
                 st.success("✅ Prediction Complete!")
                 st.metric(label="Estimated Carbon Biomass", value="45.2 Mg/ha", delta="High Confidence")
+=======
+        
+        if st.button("Predict Above-Ground Carbon Biomass"):
+            with st.spinner("Running 12-band inference model..."):
+                import time
+                time.sleep(1.5) 
+                st.success("✅ Prediction Complete!")
+                st.metric(label="Estimated Carbon Biomass", value="45.2 Mg/ha", delta="High Confidence")
+                st.info("Note: This is a simulated prediction for demonstration purposes.")
+>>>>>>> bd936fc7abced7dca6b28b8752591c2cc3335f98
