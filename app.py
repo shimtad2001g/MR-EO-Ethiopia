@@ -30,7 +30,7 @@ with tab2:
     view_state = pdk.ViewState(
         latitude=6.0,
         longitude=37.0,
-        zoom=7,
+        zoom=6.5,  # Zoom level adjusted to focus on Ethiopia
         pitch=0,
     )
     
@@ -44,15 +44,16 @@ with tab2:
         pickable=True,
     )
     
-    # Render the map (using 'light' style to avoid Mapbox token errors)
+    # Render the map (using token-free 'carto-positron' style)
     st.pydeck_chart(pdk.Deck(
-        map_style="light",
+        map_style="carto-positron", 
         initial_view_state=view_state,
         layers=[layer],
         tooltip={"text": "Gamo Gofa Study Area"},
-    ))
+        height=500
+    ), use_container_width=True)
     
-    st.divider() # Adds a nice horizontal line
+    st.divider()
     
     # Original Static Publication Maps
     st.header("Publication-Ready Maps")
