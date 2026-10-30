@@ -1,4 +1,6 @@
-﻿## 📸 Dashboard Preview
+﻿> 📄 **[Read the Stakeholder Guide for the Life eCOadapt50 Team Here](STAKEHOLDER_GUIDE.md)**
+
+## 📸 Dashboard Preview
 
 Here is a preview of the live dashboard:
 
@@ -41,4 +43,5 @@ This project aligns with the *Project SPROUT* proposal, mapping open satellite d
 
 ## 📝 License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 
