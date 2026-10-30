@@ -1,0 +1,15 @@
+﻿# Virtual Environments
+.venv/
+venv/
+__pycache__/
+
+# Heavy Model Weights
+*.pth
+
+# Data folders
+data/
+outputs/
+
+# OS files
+.DS_Store
+Thumbs.db
