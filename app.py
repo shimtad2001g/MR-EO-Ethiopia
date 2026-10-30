@@ -3,7 +3,7 @@ import pandas as pd
 
 st.set_page_config(page_title="Project SPROUT: MR-EO Ethiopia", layout="wide")
 
-st.title("🌱 Project SPROUT: MR-EO Ethiopia")
+st.title("🌱 Project SPROUT: MR-EO Ethiopia - Live Dashboard")
 st.markdown("**Multi-Risk Earth Observation & Carbon Modeling for Ethiopia**")
 
 # Create Tabs
