@@ -1,4 +1,4 @@
-﻿# 🌱 Project SPROUT: Stakeholder Guide
+# 🌱 Project SPROUT: Stakeholder Guide
 **Prepared for:** The Life eCOadapt50 Initiative
 **Project Lead:** Shimeles Tadesse Zelelew
 **Live Dashboard:** [https://sprout-mr-eo-ethiopia.streamlit.app](https://sprout-mr-eo-ethiopia.streamlit.app)
@@ -17,7 +17,7 @@ This dashboard serves as the visualization layer for a **7-Step GeoAI Workflow**
 The live dashboard is divided into three main sections designed for different stakeholders:
 
 ### 1. 📊 Project Overview
-*   **Purpose:** Provides a high-level summary of the data sources and the Self-Supervised Learning (SSL) methodology used. 
+*   **Purpose:** Provides a high-level summary of the data sources and the Self-Supervised Learning (SSL) methodology used.
 *   **For Stakeholders:** Read this section to understand the scientific foundation and the open-source nature of the data used.
 
 ### 2. 🗺️ Generated Maps
