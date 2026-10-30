@@ -44,9 +44,9 @@ with tab2:
         pickable=True,
     )
     
-    # Render the map
+    # Render the map (using 'light' style to avoid Mapbox token errors)
     st.pydeck_chart(pdk.Deck(
-        map_style="mapbox://styles/mapbox/light-v9",
+        map_style="light",
         initial_view_state=view_state,
         layers=[layer],
         tooltip={"text": "Gamo Gofa Study Area"},
@@ -65,13 +65,6 @@ with tab2:
             st.image("Publication_Study_Area_Map.png", caption="Gamo Gofa Study Area", width='stretch')
         except:
             st.warning("Study Area Map not found.")
-            
-    with col2:
-        st.subheader("Land Cover Classification")
-        try:
-            st.image("Figure_4_Land_Cover_Maps.png", caption="Land Cover Maps", width='stretch')
-        except:
-            st.warning("Land Cover Map not found.")
             
     with col2:
         st.subheader("Land Cover Classification")
