@@ -1,4 +1,15 @@
-﻿[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://sprout-mr-eo-ethiopia.streamlit.app)
+﻿## 📸 Dashboard Preview
+
+Here is a preview of the live dashboard:
+
+**🗺️ Generated Maps & Interactive Spatial Context:**
+![Map Preview](app_screenshot_map.png)
+
+**🤖 ML Models & Pipeline Architecture:**
+![ML Preview](app_screenshot_ml.png)
+
+---
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://sprout-mr-eo-ethiopia.streamlit.app)
 
 # 🌱 Project SPROUT: MR-EO Ethiopia
 **Multi-Risk Earth Observation & Carbon Modeling for Ethiopia**
