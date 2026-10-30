@@ -24,34 +24,51 @@ with tab2:
     
     # Interactive PyDeck Map
     st.subheader("Interactive Study Area Map")
-    st.write("Explore the Gamo Gofa region interactively (pan, zoom, and hover):")
+    st.write("Explore the 5 validation zones in the Gamo Gofa region (pan, zoom, and hover over markers):")
     
-    # Set the initial view state centered on Gamo Gofa, Ethiopia
+    # Create a DataFrame with the 5 validation zones
+    map_data = pd.DataFrame({
+        "Zone": ["Z1: Wurch (Afro-alpine)", "Z2: Dega (Highland)", "Z3: Weyna Dega (Mid-alt)", "Z4: Kolla (Lowland)", "Z5: Bereha (Arid)"],
+        "lat": [6.8, 6.2, 6.0, 6.9, 5.6],
+        "lon": [36.8, 36.6, 37.0, 37.4, 37.6],
+        "color": [
+            [128, 0, 128, 160],  # Purple
+            [0, 255, 0, 160],    # Green
+            [255, 255, 0, 160],  # Yellow
+            [255, 165, 0, 160],  # Orange
+            [255, 0, 0, 160]     # Red
+        ]
+    })
+    
+    # Set the initial view state
     view_state = pdk.ViewState(
-        latitude=6.0,
-        longitude=37.0,
-        zoom=6.5,  # Zoom level adjusted to focus on Ethiopia
+        latitude=6.2,
+        longitude=37.1,
+        zoom=7,
         pitch=0,
     )
     
-    # Create a simple marker layer for the study area
+    # Create the marker layer using the DataFrame
     layer = pdk.Layer(
         "ScatterplotLayer",
-        data=[{"lat": 6.0, "lon": 37.0}],
+        map_data,
         get_position=["lon", "lat"],
-        get_radius=30000,
-        get_color=[0, 255, 0, 160], # Green marker
+        get_radius=20000,
+        get_fill_color="color",
         pickable=True,
     )
     
-    # Render the map (using token-free 'carto-positron' style)
-    st.pydeck_chart(pdk.Deck(
-        map_style="carto-positron", 
-        initial_view_state=view_state,
-        layers=[layer],
-        tooltip={"text": "Gamo Gofa Study Area"},
-        height=500
-    ), use_container_width=True)
+    # Render the map
+    st.pydeck_chart(
+        pdk.Deck(
+            map_style="carto-positron", 
+            initial_view_state=view_state,
+            layers=[layer],
+            tooltip={"text": "{Zone}"}, # Shows the zone name when hovering
+        ), 
+        use_container_width=True,
+        key="interactive_map_zones" 
+    )
     
     st.divider()
     
