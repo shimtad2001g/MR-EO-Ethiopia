@@ -37,3 +37,8 @@ A GeoAI proposal and technical implementation for **Life eCOadapt50**. This proj
 
 ## 🌍 The 7-Step GeoAI Workflow
 This project aligns with the *Project SPROUT* proposal, mapping open satellite data to co-created, decision-ready climate adaptation tools.
+
+
+## 📝 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
