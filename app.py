@@ -6,17 +6,41 @@ st.set_page_config(page_title="Project SPROUT: MR-EO Ethiopia", layout="wide")
 
 # Force custom SPROUT theme via CSS
 st.markdown("""
+    # Force custom SPROUT theme via CSS
+st.markdown("""
     <style>
-    /* Tabs */
-    .stTabs [data-baseweb="tab-highlight"] { background-color: #2E7D32 !important; }
-    .stTabs [data-baseweb="tab"] { color: #2E7D32 !important; }
-    .stTabs [aria-selected="true"] { color: #2E7D32 !important; font-weight: bold !important; }
-    /* Alerts */
-    div[data-testid="stAlert"] { background-color: #E8F5E9 !important; border: 1px solid #2E7D32 !important; }
-    div[data-testid="stAlert"] * { color: #1B5E20 !important; }
-    /* Background */
-    .stApp { background-color: #F8F9FA !important; }
+    /* Override Streamlit's global primary color */
+    :root {
+        --primary-color: #2E7D32 !important;
+    }
+    
+    /* Tabs - Target the exact underline and text */
+    div[data-baseweb="tab-highlight"] {
+        background-color: #2E7D32 !important;
+    }
+    button[data-baseweb="tab"] {
+        color: #2E7D32 !important;
+    }
+    button[data-baseweb="tab"][aria-selected="true"] {
+        color: #2E7D32 !important;
+        font-weight: bold !important;
+    }
+    
+    /* Force the background color on all wrappers */
+    .stApp, [data-testid="stAppViewContainer"], [data-testid="stHeader"] {
+        background-color: #F8F9FA !important;
+    }
+    
+    /* Alert Boxes */
+    div[data-testid="stAlert"] {
+        background-color: #E8F5E9 !important;
+        border: 1px solid #2E7D32 !important;
+    }
+    div[data-testid="stAlert"] * {
+        color: #1B5E20 !important;
+    }
     </style>
+""", unsafe_allow_html=True)
 """, unsafe_allow_html=True)
 
 st.title("🌱 Project SPROUT: MR-EO Ethiopia - Live Dashboard")
