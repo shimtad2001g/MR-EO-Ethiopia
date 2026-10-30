@@ -93,9 +93,34 @@ with tab2:
 
 with tab3:
     st.header("Model Pipeline & Architecture")
-    st.markdown("""
-    *   **Self-Supervised Learning (SSL):** `gamo_gofa_ssl_weights.pth` (Pre-trained backbone)
-    *   **Carbon Regression Model:** `gamo_gofa_carbon_regression.pth` (Fine-tuned for biomass)
-    *   **12-Band Inference:** `inference_12band.py` (Combines optical and SAR data)
-    """)
-    st.success("Models are currently stored locally and can be served via a FastAPI backend.")
+    st.write("This project utilizes a 7-Step GeoAI workflow, combining Self-Supervised Learning (SSL) with PyTorch regression models.")
+    
+    # Add the framework flowchart
+    try:
+        st.image("Figure_2_Framework_Flowchart.png", caption="Project SPROUT GeoAI Framework Flowchart", width='stretch')
+    except:
+        st.warning("Framework flowchart not found in the repository.")
+        
+    st.divider()
+    
+    # Two columns for detailed model info
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.subheader("🧠 Deep Learning Models")
+        st.markdown("""
+        *   **Self-Supervised Learning (SSL):** `gamo_gofa_ssl_weights.pth` 
+            *(Pre-trained backbone for feature extraction)*
+        *   **Carbon Regression Model:** `gamo_gofa_carbon_regression.pth` 
+            *(Fine-tuned for above-ground biomass estimation)*
+        """)
+        
+    with col2:
+        st.subheader("⚙️ Inference & Deployment")
+        st.markdown("""
+        *   **12-Band Inference:** `inference_12band.py` 
+            *(Combines optical and SAR data)*
+        *   **Backend API:** Models can be served via a FastAPI backend for real-time predictions.
+        """)
+        
+    st.success("Models are currently stored locally and can be integrated into the FastAPI backend.")
