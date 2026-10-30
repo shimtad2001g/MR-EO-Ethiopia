@@ -1,0 +1,9 @@
+﻿cff-version: 1.2.0
+message: "If you use this software or data, please cite it as below."
+authors:
+  - family-names: "Zelelew"
+    given-names: "Shimeles Tadesse"
+title: "Project SPROUT: MR-EO Ethiopia - Multi-Risk Earth Observation & Carbon Modeling"
+version: 1.0.0
+date-released: "2026-10-30"
+url: "https://github.com/shimtad2001g/MR-EO-Ethiopia"
