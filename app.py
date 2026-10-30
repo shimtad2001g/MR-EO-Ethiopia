@@ -110,6 +110,7 @@ with tab3:
     st.header("Model Pipeline & Architecture")
     st.write("This project utilizes a 7-Step GeoAI workflow, combining Self-Supervised Learning (SSL) with PyTorch regression models.")
     
+    # Add the framework flowchart
     try:
         st.image("Figure_2_Framework_Flowchart.png", caption="Project SPROUT GeoAI Framework Flowchart", width='stretch')
     except:
@@ -117,6 +118,7 @@ with tab3:
         
     st.divider()
     
+    # Two columns for detailed model info
     col1, col2 = st.columns(2)
     
     with col1:
@@ -136,4 +138,25 @@ with tab3:
         *   **Backend API:** Models can be served via a FastAPI backend for real-time predictions.
         """)
         
-    st.success("Models are currently stored locally and can be integrated into the FastAPI backend.")
+    st.divider()
+
+    # NEW: Interactive Demo Section
+    st.subheader("🧪 Test the Model (Interactive Demo)")
+    st.write("Upload a sample satellite image patch to simulate a carbon biomass prediction.")
+    
+    uploaded_file = st.file_uploader("Upload a Sentinel-2 image patch (PNG/JPG)", type=["png", "jpg"])
+    
+    if uploaded_file is not None:
+        # Show the uploaded image
+        st.image(uploaded_file, caption="Uploaded Satellite Patch", width=300)
+        
+        # Prediction button
+        if st.button("Predict Above-Ground Carbon Biomass"):
+            with st.spinner("Running 12-band inference model..."):
+                # Simulated prediction logic
+                import time
+                time.sleep(1.5) # Fake processing time
+                
+                st.success("✅ Prediction Complete!")
+                st.metric(label="Estimated Carbon Biomass", value="45.2 Mg/ha", delta="High Confidence")
+                st.info("Note: This is a simulated prediction for demonstration purposes. The actual PyTorch model weights are stored locally.")
