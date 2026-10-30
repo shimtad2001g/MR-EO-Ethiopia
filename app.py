@@ -1,32 +1,9 @@
 ﻿import streamlit as st
 import pandas as pd
 import pydeck as pdk
+import time
 
 st.set_page_config(page_title="Project SPROUT: MR-EO Ethiopia", layout="wide")
-
-# Bulletproof CSS injection to force the green theme
-st.markdown("""
-<style>
-    /* Target the active tab text and underline */
-    .stTabs [data-baseweb="tab-list"] button[aria-selected="true"] {
-        color: #2E7D32 !important;
-        border-bottom-color: #2E7D32 !important;
-        font-weight: bold !important;
-    }
-    /* Target the highlight bar underneath the tabs */
-    .stTabs [data-baseweb="tab-highlight"] {
-        background-color: #2E7D32 !important;
-    }
-    /* Ensure unselected tabs are dark gray instead of red */
-    .stTabs [data-baseweb="tab-list"] button {
-        color: #333333 !important;
-    }
-    /* Force background color */
-    .stApp {
-        background-color: #F8F9FA !important;
-    }
-</style>
-""", unsafe_allow_html=True)
 
 st.title("🌱 Project SPROUT: MR-EO Ethiopia - Live Dashboard")
 st.markdown("**Multi-Risk Earth Observation & Carbon Modeling for Ethiopia**")
@@ -153,8 +130,6 @@ with tab3:
         # Prediction button
         if st.button("Predict Above-Ground Carbon Biomass"):
             with st.spinner("Running 12-band inference model..."):
-                # Simulated prediction logic
-                import time
                 time.sleep(1.5) # Fake processing time
                 
                 st.success("✅ Prediction Complete!")
