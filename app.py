@@ -3,58 +3,20 @@ import pandas as pd
 import pydeck as pdk
 
 st.set_page_config(page_title="Project SPROUT: MR-EO Ethiopia", layout="wide")
+
 # Force custom SPROUT theme via CSS
 st.markdown("""
-    /* Green tab highlight and text */
-    .stTabs [data-baseweb="tab-highlight"] {
-        background-color: #2E7D32 !important;
-    }
-    .stTabs [data-baseweb="tab"] {
-        color: #2E7D32 !important;
-    }
-    /* Green buttons */
-    .stButton>button {
-        background-color: #2E7D32 !important;
-        color: white !important;
-    }
-    /* Pale green info and success boxes */
-    div[data-testid="stAlert"] {
-        background-color: #E8F5E9 !important;
-        color: #1B5E20 !important;
-        border-color: #2E7D32 !important;
-    }
-    /* Off-white background */
-    .stApp {
-        background-color: #F8F9FA !important;
-    }
-</style>
-""", unsafe_allow_html=True)
-st.markdown("""
-<style>
-    /* Tabs - Green underline and text */
-    .stTabs [data-baseweb="tab-highlight"] {
-        background-color: #2E7D32 !important;
-    }
-    .stTabs [data-baseweb="tab"] {
-        color: #2E7D32 !important;
-    }
-    .stTabs [aria-selected="true"] {
-        color: #2E7D32 !important;
-        font-weight: bold !important;
-    }
-    /* Info Box - Pale green background and dark green text */
-    div[data-testid="stAlert"] {
-        background-color: #E8F5E9 !important;
-        border: 1px solid #2E7D32 !important;
-    }
-    div[data-testid="stAlert"] * {
-        color: #1B5E20 !important;
-    }
-    /* Main Background */
-    .stApp {
-        background-color: #F8F9FA !important;
-    }
-</style>
+    <style>
+    /* Tabs */
+    .stTabs [data-baseweb="tab-highlight"] { background-color: #2E7D32 !important; }
+    .stTabs [data-baseweb="tab"] { color: #2E7D32 !important; }
+    .stTabs [aria-selected="true"] { color: #2E7D32 !important; font-weight: bold !important; }
+    /* Alerts */
+    div[data-testid="stAlert"] { background-color: #E8F5E9 !important; border: 1px solid #2E7D32 !important; }
+    div[data-testid="stAlert"] * { color: #1B5E20 !important; }
+    /* Background */
+    .stApp { background-color: #F8F9FA !important; }
+    </style>
 """, unsafe_allow_html=True)
 
 st.title("🌱 Project SPROUT: MR-EO Ethiopia - Live Dashboard")
@@ -117,7 +79,7 @@ with tab2:
             map_style="carto-positron", 
             initial_view_state=view_state,
             layers=[layer],
-            tooltip={"text": "{Zone}"}, # Shows the zone name when hovering
+            tooltip={"text": "{Zone}"},
         ), 
         use_container_width=True,
         key="interactive_map_zones" 
