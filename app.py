@@ -4,17 +4,29 @@ import pydeck as pdk
 
 st.set_page_config(page_title="Project SPROUT: MR-EO Ethiopia", layout="wide")
 
-# Force custom SPROUT theme via CSS (Robust version)
-css = "<style>\n"
-css += "div[data-baseweb=\"tab-highlight\"] { background-color: #2E7D32 !important; }\n"
-css += "button[data-baseweb=\"tab\"] { color: #2E7D32 !important; }\n"
-css += "button[data-baseweb=\"tab\"][aria-selected=\"true\"] { color: #2E7D32 !important; font-weight: bold !important; }\n"
-css += "div[data-testid=\"stAlert\"] { background-color: #E8F5E9 !important; border: 1px solid #2E7D32 !important; }\n"
-css += "div[data-testid=\"stAlert\"] * { color: #1B5E20 !important; }\n"
-css += ".stApp, [data-testid=\"stAppViewContainer\"] { background-color: #F8F9FA !important; }\n"
-css += "</style>"
-
-st.markdown(css, unsafe_allow_html=True)
+# Bulletproof CSS injection to force the green theme
+st.markdown("""
+<style>
+    /* Target the active tab text and underline */
+    .stTabs [data-baseweb="tab-list"] button[aria-selected="true"] {
+        color: #2E7D32 !important;
+        border-bottom-color: #2E7D32 !important;
+        font-weight: bold !important;
+    }
+    /* Target the highlight bar underneath the tabs */
+    .stTabs [data-baseweb="tab-highlight"] {
+        background-color: #2E7D32 !important;
+    }
+    /* Ensure unselected tabs are dark gray instead of red */
+    .stTabs [data-baseweb="tab-list"] button {
+        color: #333333 !important;
+    }
+    /* Force background color */
+    .stApp {
+        background-color: #F8F9FA !important;
+    }
+</style>
+""", unsafe_allow_html=True)
 
 st.title("🌱 Project SPROUT: MR-EO Ethiopia - Live Dashboard")
 st.markdown("**Multi-Risk Earth Observation & Carbon Modeling for Ethiopia**")
@@ -38,7 +50,6 @@ with tab2:
     st.subheader("Interactive Study Area Map")
     st.write("Explore the 5 validation zones in the Gamo Gofa region (pan, zoom, and hover over markers):")
     
-    # Create a DataFrame with the 5 validation zones
     map_data = pd.DataFrame({
         "Zone": ["Z1: Wurch (Afro-alpine)", "Z2: Dega (Highland)", "Z3: Weyna Dega (Mid-alt)", "Z4: Kolla (Lowland)", "Z5: Bereha (Arid)"],
         "lat": [6.8, 6.2, 6.0, 6.9, 5.6],
@@ -52,15 +63,8 @@ with tab2:
         ]
     })
     
-    # Set the initial view state
-    view_state = pdk.ViewState(
-        latitude=6.2,
-        longitude=37.1,
-        zoom=7,
-        pitch=0,
-    )
+    view_state = pdk.ViewState(latitude=6.2, longitude=37.1, zoom=7, pitch=0)
     
-    # Create the marker layer using the DataFrame
     layer = pdk.Layer(
         "ScatterplotLayer",
         map_data,
@@ -70,7 +74,6 @@ with tab2:
         pickable=True,
     )
     
-    # Render the map
     st.pydeck_chart(
         pdk.Deck(
             map_style="carto-positron", 
@@ -107,7 +110,6 @@ with tab3:
     st.header("Model Pipeline & Architecture")
     st.write("This project utilizes a 7-Step GeoAI workflow, combining Self-Supervised Learning (SSL) with PyTorch regression models.")
     
-    # Add the framework flowchart
     try:
         st.image("Figure_2_Framework_Flowchart.png", caption="Project SPROUT GeoAI Framework Flowchart", width='stretch')
     except:
@@ -115,7 +117,6 @@ with tab3:
         
     st.divider()
     
-    # Two columns for detailed model info
     col1, col2 = st.columns(2)
     
     with col1:
