@@ -3,6 +3,33 @@ import pandas as pd
 import pydeck as pdk
 
 st.set_page_config(page_title="Project SPROUT: MR-EO Ethiopia", layout="wide")
+# Force custom SPROUT theme via CSS
+st.markdown("""
+<style>
+    /* Green tab highlight and text */
+    .stTabs [data-baseweb="tab-highlight"] {
+        background-color: #2E7D32 !important;
+    }
+    .stTabs [data-baseweb="tab"] {
+        color: #2E7D32 !important;
+    }
+    /* Green buttons */
+    .stButton>button {
+        background-color: #2E7D32 !important;
+        color: white !important;
+    }
+    /* Pale green info and success boxes */
+    div[data-testid="stAlert"] {
+        background-color: #E8F5E9 !important;
+        color: #1B5E20 !important;
+        border-color: #2E7D32 !important;
+    }
+    /* Off-white background */
+    .stApp {
+        background-color: #F8F9FA !important;
+    }
+</style>
+""", unsafe_allow_html=True)
 
 st.title("🌱 Project SPROUT: MR-EO Ethiopia - Live Dashboard")
 st.markdown("**Multi-Risk Earth Observation & Carbon Modeling for Ethiopia**")
