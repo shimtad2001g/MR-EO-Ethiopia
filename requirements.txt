@@ -1,10 +1,14 @@
-geopandas
-rasterio
-gdal
-earthengine-api
-geemap
-scikit-learn
+﻿# Streamlit and core data libraries
+streamlit
 pandas
 numpy
-matplotlib
-requests
+pydeck
+
+# PyTorch (CPU-only version to prevent timeouts)
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+torchvision
+
+# Add any other specific libraries your app uses (e.g., matplotlib, geospatial libs)
+# matplotlib
+# geopandas
